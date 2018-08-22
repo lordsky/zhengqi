@@ -73,7 +73,7 @@
       left: 'center',
 
       subtextStyle: {
-        color: '#000',
+        color: '',
         text: '',
         fontSize: 0,
         fontWeight: 'normal',

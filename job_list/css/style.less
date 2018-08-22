@@ -1,0 +1,224 @@
+html,
+body {
+  width: 100%;
+  background: #dedfe3;
+}
+
+.main {
+  width: 1278px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  background: #fff;
+  h1 {
+    float: left;
+    margin: 17px 0 15px 0;
+    a {
+      width: 165px;
+      height: 40px;
+      display: block;
+      background: url(../img/logo_2.png) center no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+  .nav_list {
+    float: left;
+    margin: 15px 0 0 102px;
+    li {
+      float: left;
+      width: 142px;
+      height: 42px;
+      line-height: 42px;
+      padding: 0 28px;
+      box-sizing: border-box;
+      text-align: center;
+      a {
+        font-size: 21px;
+        color: #000;
+        display: block;
+      }
+    
+      &:last-child {
+        border: none;
+        margin-left: 190px;
+        width: 147px;
+        border: 1px solid #0080C9;
+        border-radius: 21px;
+        a {
+          color: #0080C9;
+        }
+      }
+      &:last-child:hover {
+        color: #fff;
+        background: #0080c5;
+        a {
+          color: #fff;
+        }
+      }
+      &:not(:last-child):hover {
+        background: #0080c5;
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  ul {
+    li {
+      a,
+      img {
+        display: block;
+      }
+    }
+  }
+}
+
+.job_container {
+  margin-top: 64px;
+  background: #fff;
+  height: 1500px;
+  padding: 45px 58px;
+  .job_search {
+    text-align: right;
+    position: relative;
+    height: 91px;
+    input {
+      width: 370px;
+      height: 63px;
+      font-size: 21px;
+      color: #817d7d;
+      border: 2px solid #c6c6c6;
+      border-radius: 16px;
+      padding: 0 58px 0 16px;
+    }
+    i {
+      display: inline-block;
+      position: absolute;
+      top: 13px;
+      right: 13px;
+      width: 43px;
+      height: 43px;
+      background: url(../img/job_seach.png) center no-repeat;
+      background-size: 70%;
+      background-color: #c6c6c6;
+      border-radius: 8px;
+    }
+  }
+  .select_job {
+    height: 229px;
+    border: 2px solid;
+    border-color: #c6c6c6 transparent;
+    font-size: 21px;
+    color: #666666;
+    padding-top: 54px;
+    box-sizing: border-box;
+    div {
+      margin-bottom: 17px;
+      span {
+        color: #000;
+      }
+      a {
+        display: inline-block;
+        margin-left: 47px;
+        width: 68px;
+        height: 37px;
+        line-height: 40px;
+        color: #666666;
+        text-align: center;
+        border-radius: 5px;
+        &:hover {
+          color: #fff;
+          background: #0080c5;
+        }
+      }
+    }
+  }
+  .job_list {
+    margin-top: 69px;
+    .job_title {
+      height: 60px;
+      line-height: 60px;
+      background: #0081c5;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 21px;
+      span {
+        display: inline-block;
+        width: 92px;
+        margin-left: 79px;
+        text-align: center;
+      }
+      span:nth-child(1) {
+        margin: 0 189px 0 60px;
+      }
+      span:last-child {
+        width: 160px; //position: relative;
+        i {
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          background: url(../img/spr_icon.png) no-repeat;
+          background-position: 0 -135px;
+          &.job_show {
+            background-position: -17px -135px;
+          }
+        }
+      }
+    }
+  }
+  ul {
+    margin-top: 19px;
+    li {
+      margin-bottom: 30px;
+      .job_detail_t {
+        user-select: none;
+        background: #dedfe3 !important;
+        color: #666666 !important;
+      }
+      .job_detail_d {
+        background: #fbfbfc;
+        padding: 0 60px 30px;
+        display: none;
+        div {
+          padding-top: 34px;
+          h4 {
+            font-size: 21px;
+            font-weight: 500;
+            margin-bottom: 22px;
+          }
+          p {
+            font-size: 16px;
+            height: 27px;
+            line-height: 27px;
+            color: #666666;
+          }
+        }
+        .job_send {
+          a {
+            display: inline-block;
+            width: 150px;
+            height: 39px;
+            line-height: 39px;
+            color: #0081c5;
+            font-size: 21px;
+            text-align: center;
+            border: 1px solid #0081c5;
+            border-radius: 20px;
+          }
+          p {
+            margin-top: 18px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
