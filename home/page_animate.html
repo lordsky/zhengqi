@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../public/css/reset.min.css">
+</head>
+<style>
+  html,
+  body,
+  .page_1 {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .page_1 {
+    background: url(img/page_animate/page_bg_1.jpg) no-repeat;
+    background-size: 100% 100%;
+    perspective: 2000px;
+
+  }
+
+  .star_box {
+    position: relative;
+  }
+
+  .earth,
+  .planet_1,
+  .planet_2 {
+    transform-style: preserve-3d;
+    position: absolute;
+  }
+
+  .earth {
+    top: 50px;
+    left: 65px;
+    transform: translateZ(100px);
+    z-index: 2;
+  }
+
+  .earth img {
+    width: 1000px;
+
+  }
+
+  .planet_1 {
+    top: 435px;
+    left: 17px;
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+
+  .planet_1 img {
+    /* width: 300px; */
+  }
+
+  .planet_2 {
+    top: 606px;
+    left: 184px;
+    transform: translate3d(460px, -327px, 0) scale(1);
+    opacity: 1;
+  }
+
+  .planet_2 img {}
+</style>
+
+<body>
+  <div class="page_1">
+    <div class="star_box">
+      <div class="earth">
+        <img src="img/page_animate/earth.png" alt="">
+      </div>
+      <div class="planet_1">
+        <img src="img/page_animate/planet_1.png" alt="">
+      </div>
+      <div class="planet_2">
+        <img src="img/page_animate/planet_2.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  <script src="../public/js/jquery-1.11.3.min.js"></script>
+
+  <script>
+    var starMove = function () {
+      var axis = [
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1}, 
+        {x: 0, y: 0,z: 0, s: 1},         
+    ]
+    }
+  </script>
+</body>
+
+</html>
