@@ -38,7 +38,7 @@
   .earth {
     top: 50px;
     left: 65px;
-    transform: translateZ(100px);
+
     z-index: 2;
   }
 
@@ -48,24 +48,28 @@
   }
 
   .planet_1 {
-    top: 435px;
-    left: 17px;
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: 1;
+
+    top: 468px;
+    left: 32px;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    z-index: 3;
+    opacity: 0.7;
+    /* transition: 1s; */
   }
 
   .planet_1 img {
-    /* width: 300px; */
+    width: 300px;
   }
 
   .planet_2 {
-    top: 606px;
-    left: 184px;
-    transform: translate3d(460px, -327px, 0) scale(1);
+    top: 528px;
+    left: 101px;
+    transform: translate3d(686px, -186px, 0);
+    z-index: 1;
     opacity: 1;
   }
 
-  .planet_2 img {}
+  /* .planet_2 img {} */
 </style>
 
 <body>
@@ -77,7 +81,7 @@
       <div class="planet_1">
         <img src="img/page_animate/planet_1.png" alt="">
       </div>
-      <div class="planet_2">
+      <div class="planet_2" id="test">
         <img src="img/page_animate/planet_2.png" alt="">
       </div>
     </div>
@@ -86,35 +90,303 @@
   <script src="../public/js/jquery-1.11.3.min.js"></script>
 
   <script>
-    var starMove = function () {
-      var axis = [
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1}, 
-        {x: 0, y: 0,z: 0, s: 1},         
-    ]
+    var $planet_1 = $('.planet_1'),
+      $planet_2 = $('.planet_2');
+
+    var start = {
+        x: 0,
+        y: 0,
+        z: 0,
+        s: 1,
+        o: 1
+      },
+      z_1 = 3;
+    z_2 = 1;
+    var progress = 0;
+    var startMove = function () {
+      $planet_1.css({
+        'transform': 'translate3d(' + start.x + 'px,' + start.y + 'px,' +
+          start.z + 'px)' + ' ' + '' + 'scale(' + start.s + ')',
+        'opacity': 0.7 + (1 - start.o)
+      });
+      $planet_2.css({
+        'transform': 'translate3d(' + (-start.x + 686) + 'px,' + (-start.y - 186) + 'px,' +
+          start.z + 'px)' + ' ' + '' + 'scale(' + (2 - start.s) + ')',
+        'opacity': start.o
+      });
     }
+
+    function step(timestamp) {
+      //console.log(timestamp);
+      /* if (!start) start = timestamp; var progress = timestamp - start; */
+      progress++;
+      if (progress >= 0 && progress <= 20) {
+        start.x += 0.5;
+        start.y += 0.75;
+        start.s += 0.001;
+        start.o -= 0.005;
+        $planet_1.css('zIndex', 3);
+        $planet_2.css('zIndex', 1);
+        startMove();
+      } else if (progress > 20 && progress <= 40) {
+        start.x += 0.8;
+        start.y += 0.75;
+        start.s += 0.002;
+        start.o -= 0.005;
+        startMove();
+      } else if (progress > 40 && progress <= 60) {
+        start.x += 1;
+        start.y += 0.7;
+        start.s += 0.002;
+        start.o -= 0.005;
+        startMove();
+      } else if (progress > 60 && progress <= 80) {
+        start.x += 1.5;
+        start.y += 0.7;
+        start.s += 0.002;
+        startMove();
+      } else if (progress > 80 && progress <= 100) {
+        start.x += 2;
+        start.y += 0.7;
+        start.s += 0.001; //1
+        startMove();
+      } else if (progress > 100 && progress <= 120) {
+        start.x += 2;
+        start.y += 0.4;
+        start.s += 0.001;
+        startMove();
+      } else if (progress > 120 && progress <= 140) {
+        start.x += 2.2;
+        start.y -= 0;
+        start.s += 0;
+        startMove();
+      } else if (progress > 140 && progress <= 160) {
+        start.x += 2.2;
+        start.y -= 0.4;
+        start.s += 0;
+        startMove();
+      } else if (progress > 160 && progress <= 180) {
+        start.x += 2.4;
+        start.y -= 0.4;
+        start.s += 0;
+        startMove();
+      } else if (progress > 180 && progress <= 200) {
+        start.x += 2.2;
+        start.y -= 0.4;
+        start.s -= 0.001;
+
+        startMove();
+      } else if (progress > 200 && progress <= 220) {
+        start.x += 2;
+        start.y -= 0.5;
+        start.s -= 0.001;
+        startMove();
+      } else if (progress > 220 && progress <= 240) {
+        start.x += 2;
+        start.y -= 0.5;
+        start.s -= 0.001;
+        startMove();
+      } else if (progress > 240 && progress <= 260) {
+        start.x += 2;
+        start.y -= 0.7;
+        start.s -= 0.002;
+        startMove();
+      } else if (progress > 260 && progress <= 280) {
+        start.x += 2;
+        start.y -= 0.7;
+        start.s -= 0.003;
+        startMove();
+      } else if (progress > 280 && progress <= 300) {
+        start.x += 2;
+        start.y -= 0.9;
+        start.s -= 0.003;
+        startMove();
+      } else if (progress > 300 && progress <= 320) {
+        start.x += 2;
+        start.y -= 1;
+        start.s -= 0.002;
+        startMove();
+      } else if (progress > 320 && progress <= 340) {
+        start.x += 1.8;
+        start.y -= 1;
+        start.s -= 0.002;
+        startMove();
+      } else if (progress > 340 && progress <= 360) {
+        start.x += 1.5;
+        start.y -= 1.1;
+        start.s -= 0.001;
+        startMove();
+      } else if (progress > 360 && progress <= 380) {
+        start.x += 1.2;
+        start.y -= 1.1;
+        start.s -= 0.001;
+        startMove();
+      } else if (progress > 380 && progress <= 400) {
+        start.x += 1;
+        start.y -= 1.2;
+        start.s -= 0.001;
+        startMove();
+      } else if (progress > 400 && progress <= 420) {
+        start.x += 0.5;
+        start.y -= 1.2;
+        start.s -= 0.001;
+        startMove();
+      } else if (progress > 420 && progress <= 440) {
+        start.x += 0;
+        start.y -= 1.4;
+        start.s -= 0.002;
+        start.o += 0.005;
+        startMove();
+      } else if (progress > 440 && progress <= 460) {
+        start.x -= .2;
+        start.y -= 1.2;
+        start.s -= 0.002;
+        start.o += 0.005;
+        startMove();
+      } else if (progress > 460 && progress <= 480) {
+        start.x -= .5;
+        start.y -= .8;
+        start.s -= 0.001; //end
+        start.o += 0.005;
+        $planet_1.css('zIndex', 1);
+        $planet_2.css('zIndex', 3);
+        startMove();
+      } else if (progress > 480 && progress <= 500) {
+        start.x -= 0.5;
+        start.y -= 0.75;
+        start.s -= 0.001; //loop
+        startMove();
+      } else if (progress > 500 && progress <= 520) {
+        start.x -= 0.8;
+        start.y -= 0.75;
+        start.s -= 0.002;
+        startMove();
+      } else if (progress > 520 && progress <= 540) {
+        start.x -= 1;
+        start.y -= 0.7;
+        start.s -= 0.002;
+
+        startMove();
+      } else if (progress > 540 && progress <= 560) {
+        start.x -= 1.5;
+        start.y -= 0.7;
+        start.s -= 0.002;
+        startMove();
+      } else if (progress > 560 && progress <= 580) {
+        start.x -= 2;
+        start.y -= 0.7;
+        start.s -= 0.001;
+        startMove();
+      } else if (progress > 580 && progress <= 600) {
+        start.x -= 2;
+        start.y -= 0.4;
+        start.s -= 0.001;
+        startMove();
+      } else if (progress > 600 && progress <= 620) {
+        start.x -= 2.2;
+        start.y -= 0;
+        start.s -= 0;
+
+        startMove();
+      } else if (progress > 620 && progress <= 640) {
+        start.x -= 2.2;
+        start.y += 0.4;
+        start.s -= 0;
+        startMove();
+      } else if (progress > 640 && progress <= 660) {
+        start.x -= 2.4;
+        start.y += 0.4;
+        start.s -= 0;
+        startMove();
+      } else if (progress > 660 && progress <= 680) {
+        start.x -= 2.2;
+        start.y += 0.4;
+        start.s += 0.001;
+
+        startMove();
+      } else if (progress > 680 && progress <= 700) {
+        start.x -= 2;
+        start.y += 0.5;
+        start.s += 0.001;
+        startMove();
+      } else if (progress > 700 && progress <= 720) {
+        start.x -= 2;
+        start.y += 0.5;
+        start.s += 0.001;
+        startMove();
+      } else if (progress > 720 && progress <= 740) {
+        start.x -= 2;
+        start.y += 0.7;
+        start.s += 0.002;
+        startMove();
+      } else if (progress > 740 && progress <= 760) {
+        start.x -= 2;
+        start.y += 0.7;
+        start.s += 0.003;
+        startMove();
+      } else if (progress > 760 && progress <= 780) {
+        start.x -= 2;
+        start.y += 0.9;
+        start.s += 0.003;
+        startMove();
+      } else if (progress > 780 && progress <= 800) {
+        start.x -= 2;
+        start.y += 1;
+        start.s += 0.002;
+
+        startMove();
+      } else if (progress > 800 && progress <= 820) {
+        start.x -= 1.8;
+        start.y += 1;
+        start.s += 0.002;
+        startMove();
+      } else if (progress > 820 && progress <= 840) {
+        start.x -= 1.5;
+        start.y += 1.1;
+        start.s += 0.001;
+        startMove();
+      } else if (progress > 840 && progress <= 860) {
+        start.x -= 1.2;
+        start.y += 1.1;
+        start.s += 0.001;
+        startMove();
+      } else if (progress > 860 && progress <= 880) {
+        start.x -= 1;
+        start.y += 1.2;
+        start.s += 0.001;
+        startMove();
+      } else if (progress > 880 && progress <= 900) {
+        start.x -= 0.5;
+        start.y += 1.2;
+        start.s += 0.001;
+        startMove();
+      } else if (progress > 900 && progress <= 920) {
+        start.x -= 0;
+        start.y += 1.4;
+        start.s += 0.002;
+        startMove();
+      } else if (progress > 920 && progress <= 940) {
+        start.x += .2;
+        start.y += 1.2;
+        start.s += 0.002;
+        startMove();
+      } else if (progress > 940 && progress <= 959) {
+        start.x += .5;
+        start.y += .8;
+        start.s += 0.001; //end
+
+        if (progress === 959) {
+          start.x = 0;
+          start.y = 0;
+          start.s = 1;
+          progress = 0;
+        }
+        startMove();
+      }
+      window.requestAnimationFrame(step);
+    };
+
+    window.requestAnimationFrame(step);
   </script>
 </body>
 
