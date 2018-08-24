@@ -252,16 +252,44 @@ var mapInit = function () {
 //   });
 // })();
 
+// 计算swiper_wrapper的高度
+var $header = $('.header'),
+  $swiper_wrapper = $('.swiper_wrapper');
+var winH = document.activeElement.clientHeight;
+var swiperH = winH - $header.height();
+console.log($swiper_wrapper[0]);
+
+$swiper_wrapper.css('height', swiperH);
+
+// 点击主KV进入招聘主页
 var $main_kv = $('.main_kv'),
-  $swiper_container = $('.swiper-container');
+  $swiper_container = $('.swiper_container');
 
 $main_kv.on('click', function () {
   $main_kv.hide();
   $swiper_container.show();
   mapInit();
+});
+
+// 切换各公司的招聘页面
+var $nav_list = $('#nav_list'),
+    $nav_li=$nav_list.find('li'),
+  $swiper_slide = $swiper_wrapper.find('.swiper_slide');
+
+$nav_list.on('click', function (e) {
+  if (e.target.tagName === 'A') {
+    var $parent = $(e.target).parent();
+    $parent.addClass('active').siblings().removeClass('active');
+    var index=$nav_li.index($parent);  
+    $swiper_slide.eq(index).show().siblings().hide();
+    if(index===4){
+      mapInit();
+    }  
+  }
 })
 
 
+// 显示二维码
 var $qr_icon = $('.qr_icon');
 
 $qr_icon.on('mouseenter', function () {
