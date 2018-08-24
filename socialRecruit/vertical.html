@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.min.css">
+
+  <link rel="stylesheet/less" href="css/test.less">
+  <script src="js/libs/less-2.5.3.min.js"></script>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="inner" id="inner">
+      <div class="content1 item">
+        <div class="cont1_box1">TEXT</div>
+        <div class="cont1_box2">TEXT</div>
+      </div>
+      <div class="content2 item">
+        <div class="cont2_box1">TEXT</div>
+        <div class="cont2_box2">TEXT</div>
+      </div>
+      <div class="content3 item">
+        <div class="cont3_box1">TEXT</div>
+        <div class="cont3_box2">TEXT</div>
+      </div>
+      <div class="content4 item">
+        <div class="cont4_box1">TEXT</div>
+        <div class="cont4_box2"></div>
+      </div>
+      <div class="content5 item">
+        <div class="cont5_box1">TEXT</div>
+        <div class="cont5_box2">TEXT</div>
+      </div>
+    </div>
+  </div>
+  <div class="idx_page">
+    <a href="javascript:;" class="active"></a>
+    <a href="javascript:;"></a>
+    <a href="javascript:;"></a>
+    <a href="javascript:;"></a>
+    <a href="javascript:;"></a>
+  </div>
+
+  <div class="bird">
+
+  </div>
+
+  <script src="js/libs/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+    var winW = document.documentElement.clientWidth;
+
+    (function () {
+      var $inner = $('#inner'),
+        $item = $inner.find('.item'),
+        $idx_page = $('.idx_page');
+
+      //var winW = document.documentElement.clientWidth;
+      $inner.css("width", winW * 5);
+      $item.css("width", winW);
+      $(window).on('resize', function name(params) {
+        winW = document.documentElement.clientWidth;
+        $inner.css("width", winW * 5);
+        $item.css("width", winW);
+      });
+
+      var marginVal = 0,
+        stepIdx = 0,
+        moveVal = 60,
+        page = 1;
+      wheelTimer = null;
+
+      var pageClass = function (page) {
+        $idx_page.find('a').eq(page - 1).addClass('active').siblings().removeClass('active');
+      };
+
+      var computedPage = function (marginVal) {
+        console.log(marginVal);
+        if (marginVal <=
+          0 && marginVal >= -winW / 2) {
+          page = 1;
+          pageClass(page);
+        } else if (marginVal <=
+          -winW / 2 && marginVal >= -winW * 3 / 2) {
+          page = 2;
+          pageClass(page);
+        } else if (marginVal <=
+          -winW * 3 / 2 && marginVal >= -winW * 5 / 2) {
+          page = 3;
+          pageClass(page);
+        } else if (marginVal <=
+          -winW * 5 / 2 && marginVal >= -winW * 7 / 2) {
+          page = 4;
+          pageClass(page);
+        } else if (marginVal <=
+          -winW * 7 / 2) {
+          page = 5;
+          pageClass(page);
+        }
+      };
+
+      // 判断鼠标滚轮滚动的方向 
+      function onMouseScroll(e) {
+        stepIdx++;
+        //console.log(stepIdx, stepIdx);
+        if (wheelTimer) return;
+
+        //e.preventDefault();
+        var wheel = e.originalEvent.wheelDelta || -e.originalEvent.detail;
+        var delta = Math.max(-1, Math.min(1, wheel));
+        if (delta < 0) {
+          wheelTimer = setTimeout(function () {
+            //向下滚动
+            //console.log('向下滚动');
+            marginVal = marginVal - moveVal * stepIdx;
+            //console.log(marginVal, -winW * 4);
+
+            marginVal = marginVal <= -winW * 4 ? -winW * 4 : marginVal;
+            $inner.css('margin-left', marginVal);
+            computedPage(marginVal);
+            clearTimeout(wheelTimer);
+            stepIdx = 0;
+            wheelTimer = null;
+          }, 100)
+        } else {
+          wheelTimer = setTimeout(function () {
+            //向上滚动 
+            //console.log('向上滚动');
+            marginVal = marginVal + moveVal * stepIdx;
+            marginVal = marginVal >= 0 ? 0 : marginVal;
+            $inner.css('margin-left', marginVal);
+            computedPage(marginVal);
+            clearTimeout(wheelTimer);
+            stepIdx = 0;
+            wheelTimer = null;
+          }, 100)
+        }
+      }
+
+      $(document).on('mousewheel DOMMouseScroll', onMouseScroll);
+
+      $idx_page.find('a').on('click', function (e) {
+        marginVal = -$(this).index() * winW;
+        $inner.css('margin-left', marginVal);
+        computedPage(marginVal);
+      })
+
+    })();
+  </script>
+
+</body>
+
+</html>
