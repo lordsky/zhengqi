@@ -2,7 +2,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  font-size: "	Microsoft Yahei";
+  overflow: hidden;
 }
 
 /* body::-webkit-scrollbar {
@@ -46,7 +46,7 @@ body {
         color: #000;
         padding: 0 10px;
         display: block;
-        border-radius: 4px;
+        border-radius: 2px;
       }
       &:hover a {
         color: #fff;
@@ -61,18 +61,24 @@ body {
 }
 
 .main_kv {
+ 
+  position: relative;
   width: 100%;
   height: 100%;
-  background: url(../img/page_bg_18.jpg) center no-repeat;
-  background-size: 100% 100%;
-  cursor: pointer;
+  background: url(../img/kv_main.jpg) center no-repeat;
+  background-size: 100% 100%; //cursor: pointer;
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
   .logo {
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 50px;
     z-index: 99;
     text-indent: -9999em;
-    a {
+    .logo_icon {
       display: block;
       width: 133px;
       height: 51px;
@@ -90,9 +96,10 @@ body {
     font-weight: 100;
     letter-spacing: 53px;
   }
-} //.page_1 end
-.swiper_container {
-  display: none;
+}
+
+.container {
+  position: relative;
   width: 100%;
   height: 100%;
   .swiper_wrapper {
@@ -101,8 +108,7 @@ body {
     .swiper_slide {
       width: 100%;
       height: 100%;
-      position: relative;
-      display: none;
+      position: relative; //display: none;
       &.page_2 {
         background: url(../img/page_bg_2.jpg) center no-repeat;
         background-size: cover;
@@ -112,136 +118,65 @@ body {
         }
       }
       &.page_3 {
-        display: block;
-        .page_cont_1,
-          {
-          top: 0;
-          left: 0;
-          width: 30%;
-          height: 100%;
-          background: url(../img/page_bg_qt.png) center no-repeat;
-          background-size: 100% 100%;
-          .cont_box {
-            a {
-              margin: -146px 0 0 -137px;
-              width: 250px;
-              height: 250px;
-              background: url(../img/logo_qt.png) center no-repeat;
-              background-size: 100% 100%;
-            }
-          }
-          .hover_cont {
-            .hover_icon {
-              background: url(../img/logo_qt.png) no-repeat;
-            }
-          }
-        }
-        .page_cont_2 {
-          top: 0;
-          left: 30%;
-          width: 40%;
-          height: 100%;
-          background: url(../img/page_bg_zq.png) center no-repeat;
-          background-size: 102% 102%;
-          .cont_box {
-            a {
-              margin: -210px 0 0 -169px;
-              width: 360px;
-              height: 288px;
-            }
-          }
-          .hover_box {
-            .hover_cont {
-              p {
-                position: absolute;
-                top: 45%;
-                left: 24% !important;
-                width: 420px !important;
-                color: #FFF;
-                font-size: 20px;
-                line-height: 39px;
-                font-weight: 100;
-                text-indent: 2px;
-              }
-            }
-          }
-        }
-        .page_cont_3 {
-          top: 0;
-          right: 0;
-          width: 30%;
-          height: 100%;
-          background: url(../img/page_bg_zx.png) center no-repeat;
-          background-size: 100% 100%;
-          .cont_box {
-            a {
-              background: url(../img/logo_zx.png) no-repeat;
-            }
-          }
-          .hover_box {
-            .hover_cont {
-              .hover_icon {
-                background: url(../img/logo_zx.png) no-repeat;
-              }
-            }
-          }
-        }
         .cont_cmt {
           position: absolute;
+          height: 100%;
           overflow: hidden;
           transition: all ease-out .4s;
-          div {
+          .cont_box {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             a {
-              display: block;
               position: absolute;
               top: 50%;
               left: 50%;
-              margin: -130px 0 0 -122px;
-              width: 261px;
-              height: 244px;
-              background: url(../img/cont_bg_yt.png) center no-repeat;
-              background-size: cover;
             }
-            &.hover_box {
-              left: 100%;
-              background: rgba(0, 55, 89, .7);
-              transition: left .3s;
-              .hover_cont {
-                .hover_icon {
-                  top: 30%;
-                }
-                p {
-                  position: absolute;
-                  top: 45%;
-                  left: 21%;
-                  width: 370px;
-                  color: #FFF;
-                  font-size: 20px;
-                  line-height: 39px;
-                  font-weight: 100;
-                  text-indent: 2px;
-                }
-                .hover_link {
-                  top: 94%;
-                  left: 45%;
-                  margin-left: -75px;
-                  background: none;
-                  width: 220px;
-                  height: 56px;
-                  line-height: 56px;
-                  text-align: center; //line-height: 60px;
-                  font-size: 25px;
-                  color: #FFF;
-                  border: 2px solid #FFF;
-                  &:hover {
-                    background-color: #0080C9;
-                    border: 2px solid #0080C9;
-                  }
+          }
+          .hover_box {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 55, 89, .7);
+            transition: left .3s;
+            .hover_cont {
+              position: absolute;
+              top: 15%;
+              left: 50%;
+              margin-left: -35%;
+              width: 70%;
+              text-align: center;
+              .hover_icon {
+                display: inline-block;
+                width: 200px;
+                height: 200px;
+                background-size: cover;
+              }
+              p {
+                margin: 7% 0 10%;
+                color: #FFF;
+                font-size: 20px;
+                line-height: 39px;
+                font-weight: 100;
+                text-indent: 2px;
+              }
+              .hover_link {
+                display: inline-block;
+                background: none;
+                width: 220px;
+                height: 56px;
+                line-height: 56px;
+                text-align: center; //line-height: 60px;
+                font-size: 25px;
+                color: #FFF;
+                border: 2px solid #FFF;
+                &:hover {
+                  background-color: #0080C9;
+                  border: 2px solid #0080C9;
                 }
               }
             }
@@ -255,76 +190,87 @@ body {
           &:hover .cont_box {
             display: none;
           }
-        } //.cont_cmt end
-        &:hover {
-          background-size: 120% 120%;
-        }
-      } //.page_3 end
-      &.page_4 {
-        background: url(../img/page_bg_4.jpg) center no-repeat;
-        background-size: cover;
-        .offi {
-          .offi_bg {
-            width: 260px !important;
-            height: 260px !important;
-            background: url(../img/logo_zq.png) no-repeat !important; //background-position: -20px -20px;
-            background-size: cover !important;
-            i {
-              right: -47px !important;
-              bottom: 7px !important;
+        } // cont_cmt end
+        .page_cont_1 {
+          top: 0;
+          left: 0;
+          width: 30%;
+          background: url(../img/page_bg_qt.png) center no-repeat;
+          background-size: 100% 100%;
+          .cont_box a {
+            margin: -146px 0 0 -137px;
+            width: 250px;
+            height: 250px;
+            background: url(../img/logo_qt.png) center no-repeat;
+            background-size: 100% 100%;
+          }
+          .hover_box {
+            .hover_icon {
+              background: url(../img/logo_qt.png) center no-repeat;
             }
           }
         }
-      }
-      &.page_5 {
-        background: url(../img/page_bg_5.jpg) center no-repeat;
-        background-size: cover;
-      }
-      &.page_6 {
-        background: url(../img/page_bg_6.jpg) center no-repeat;
-        background-size: cover;
-        /*   .offi {
-          .offi_bg {
-            width: 279px;
-            height: 289px;
-            background: url(../img/logo_bg_zy.png) no-repeat !important;
+        .page_cont_2 {
+          top: 0;
+          left: 30%;
+          width: 40%;
+          background: url(../img/page_bg_zq.png) center no-repeat;
+          background-size: 102% 102%;
+          .cont_box a {
+            margin: -180px 0 0 -137px;
+            width: 270px;
+            height: 270px;
+            background: url(../img/logo_zq.png) center no-repeat;
+            background-size: 100% 100%;
           }
-        } */
-      }
+          .hover_box {
+            .hover_icon {
+              background: url(../img/logo_zq.png) center no-repeat;
+            }
+          }
+        }
+        .page_cont_3 {
+          top: 0;
+          left: 70%;
+          width: 30%;
+          background: url(../img/page_bg_zx.png) center no-repeat;
+          background-size: 101% 101%;
+          .cont_box a {
+            margin: -146px 0 0 -137px;
+            width: 250px;
+            height: 250px;
+            background: url(../img/logo_zx.png) center no-repeat;
+            background-size: 100% 100%;
+          }
+          .hover_box {
+            .hover_icon {
+              background: url(../img/logo_zx.png) center no-repeat;
+            }
+          }
+        }
+      } //.page_3 end
       &.offi_cmt {
         .offi {
           position: absolute;
-          top: 45%;
+          top: 42%;
           left: 50%;
           transform: translate(-50%, -50%);
           .offi_bg {
             position: relative;
-            width: 279px;
-            height: 289px;
-            background: url(../img/logo_bg_zy.png) no-repeat;
+            width: 240px;
+            height: 240px;
+            a {
+              display: block;
+              width: 100%;
+              height: 100%;
+            }
             i {
               position: absolute;
-              right: -32px;
-              bottom: 17px;
               display: block;
               width: 48px;
               height: 95px;
               background: url(../img/offi_arrow.png) no-repeat;
-              animation: arrow 1.5s linear infinite;
-            }
-            @keyframes arrow {
-              0% {
-                transform: translateX(0);
-                opacity: 0;
-              }
-              50% {
-                transform: translateX(35px);
-                opacity: 1;
-              }
-              100% {
-                transform: translateX(0);
-                opacity: 0;
-              }
+              transition: right .3s ease;
             }
           }
           .invite {
@@ -332,7 +278,7 @@ body {
             a {
               position: absolute;
               top: 56px;
-              left: -187px;
+              left: -250px;
               display: inline-block;
               margin: 0 20px;
               width: 250px;
@@ -344,7 +290,7 @@ body {
               color: #FFF;
               border: 2px solid #FFF; //border-radius: 10px;
               &:nth-of-type(2) {
-                left: 240px;
+                left: 200px;
               }
               &:hover {
                 background-color: #0080C9;
@@ -367,8 +313,8 @@ body {
           img {
             display: none;
             position: absolute;
-            top: -150px;
-            left: -35px;
+            top: -92px;
+            left: -126px;
             width: 132px;
             height: 165px; //transition:all 1s;
           }
@@ -376,6 +322,64 @@ body {
             background: url(../img/qr_icon_2.png) no-repeat;
           }
         }
+      } //offi_cmt end
+      &.page_4 {
+        background: url(../img/page_bg_4.jpg) center no-repeat;
+        background-size: cover;
+        .offi {
+          .offi_bg {
+            background: url(../img/page_logo_zq.png) no-repeat; //background-position: -20px -20px;
+            background-size: 98%;
+            i {
+              right: -50px;
+              bottom: -11px;
+            }
+            &:hover i {
+              right: -60px;
+            }
+          }
+        }
+      }
+      &.page_5 {
+        background: url(../img/page_bg_5.jpg) center no-repeat;
+        background-size: cover;
+        .offi {
+          .offi_bg {
+            background: url(../img/page_logo_qt.png) no-repeat;
+            background-size: 90%;
+            i {
+              right: -35px;
+              bottom: 2px;
+            }
+            &:hover i{
+              right: -45px;
+            }
+          }
+        }
+      }
+      &.page_6 {
+        background: url(../img/page_bg_6.jpg) center no-repeat;
+        background-size: cover;
+        .offi {
+          .offi_bg {
+            background: url(../img/page_logo_zx.png) no-repeat;
+            background-size: cover;
+            i {
+              right: -60px;
+              bottom: 2px;
+            }
+            &:hover i {
+              right: -70px;
+            }
+          }
+        }
+        /*   .offi {
+          .offi_bg {
+            width: 279px;
+            height: 289px;
+            background: url(../img/logo_bg_zy.png) no-repeat !important;
+          }
+        } */
       }
     }
   } //.swiper-wrapper end
@@ -405,7 +409,7 @@ body {
 }
 
 //.swiper-container end
-.page_idx {
+/* .page_idx {
   position: fixed;
   top: 50%;
   right: 50px;
@@ -427,4 +431,4 @@ body {
       background: #FFF;
     }
   }
-}
+} */

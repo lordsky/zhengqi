@@ -226,6 +226,11 @@ var mapInit = function () {
   }
 };
 
+window.onload = function () {
+  mapInit();
+}
+
+
 // (function () {
 //   // swiper
 //   var mySwiper = new Swiper('.swiper-container', {
@@ -257,22 +262,21 @@ var $header = $('.header'),
   $swiper_wrapper = $('.swiper_wrapper');
 var winH = document.activeElement.clientHeight;
 var swiperH = winH - $header.height();
-console.log($swiper_wrapper[0]);
 
 $swiper_wrapper.css('height', swiperH);
 
 // 点击主KV进入招聘主页
-var $main_kv = $('.main_kv'),
-  $swiper_container = $('.swiper_container');
+/* var $main_kv = $('.main_kv'),
+  $swiper_container = $('.container');
 
 $main_kv.on('click', function () {
   $main_kv.hide();
   $swiper_container.show();
   mapInit();
-});
+}); */
 
 // 切换各公司的招聘页面
-var $nav_list = $('#nav_list'),
+/* var $nav_list = $('#nav_list'),
     $nav_li=$nav_list.find('li'),
   $swiper_slide = $swiper_wrapper.find('.swiper_slide');
 
@@ -286,7 +290,54 @@ $nav_list.on('click', function (e) {
       mapInit();
     }  
   }
-})
+}) */
+
+//根据hash更改nav li的样式
+/*HASH*/
+var classInit;
+window.onhashchange = classInit = function () {
+  var $nav_list = $('#nav_list'),
+    $nav_li = $nav_list.find('li');
+
+  function changeClass(index) {
+    $nav_li.eq(index).addClass('active').siblings().removeClass('active');
+    console.log('hash change');
+    
+  }
+
+  var url = window.location.href, //=>获取当前页面的URL地址  location.href='xxx'这种写法是让其跳转到某一个页面
+    well = url.indexOf('#'),
+    hash = well === -1 ? null : url.substr(well + 1),
+    index;
+  switch (hash) {
+    case 'page_home':
+      index = 0;
+      changeClass(index);
+      break;
+    case 'page_zq':
+      index = 1;
+      changeClass(index);
+      break;
+    case 'page_qt':
+      index = 2;
+      changeClass(index);
+      break;
+    case 'page_zx':
+      index = 3;
+      changeClass(index);
+      break;
+    case 'join_us':
+      index = 4;
+      changeClass(index);
+      break;
+
+    default:
+      index = 0;
+      changeClass(index);
+  }
+};
+classInit();
+
 
 
 // 显示二维码
