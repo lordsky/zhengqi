@@ -1,9 +1,10 @@
-(function () {
+$(function () {
   var $news_img = $('.news_img'),
     $new_step_tit = $('.new_step_tit'),
     $new_step_box = $('.new_step_box'),
     $slider_box = $('.slider_box'),
-    $sliderList = $slider_box.find('li');
+    $sliderList = $slider_box.find('li'),
+    $step_list = $('.new_step_list li');
 
   /* onscroll 事件 */
   var winTop,
@@ -21,10 +22,10 @@
     ++count;
     console.log(count);
     /* $news_img.css('transform', 'translateY(' + -winTop / 3 + 'px)'); */
-   /*  $new_step_tit.css('transform', 'translateX(' + -winTop / 3 + 'px)');
-    $new_step_box.css(
-      'transform', 'translateX(' + winTop / 3 + 'px)'
-    ); */
+    /*  $new_step_tit.css('transform', 'translateX(' + -winTop / 3 + 'px)');
+     $new_step_box.css(
+       'transform', 'translateX(' + winTop / 3 + 'px)'
+     ); */
 
     clearInterval(throttle)
     throttle = null;
@@ -56,31 +57,31 @@
       $slider_box.fadeOut(500);
     }
 
-    if (winTop >= 1300 && winTop <= 1900) {
+    if (winTop >= 1200 && winTop <= 1400) {
       _index = 0;
       if (_index === lastIndex) return;
-     
-      $sliderList.eq(_index).addClass('is_on');
-      $sliderList.eq(lastIndex).removeClass('is_on');
-      lastIndex = _index;
-    }
-    if (winTop > 1900 && winTop <= 2700) {
-      _index = 1;
-      if (_index === lastIndex) return; 
 
       $sliderList.eq(_index).addClass('is_on');
       $sliderList.eq(lastIndex).removeClass('is_on');
       lastIndex = _index;
     }
-    if (winTop > 2700 && winTop <= 3800) {
-      _index = 2;
+    if (winTop > 2000 && winTop <= 2100) {
+      _index = 1;
       if (_index === lastIndex) return;
-     
+
       $sliderList.eq(_index).addClass('is_on');
       $sliderList.eq(lastIndex).removeClass('is_on');
       lastIndex = _index;
     }
-    if (winTop >= 3800) {
+    if (winTop > 2800 && winTop <= 3100) {
+      _index = 2;
+      if (_index === lastIndex) return;
+
+      $sliderList.eq(_index).addClass('is_on');
+      $sliderList.eq(lastIndex).removeClass('is_on');
+      lastIndex = _index;
+    }
+    if (winTop >= 3550) {
       _index = 3;
       if (_index === lastIndex) return;
 
@@ -95,9 +96,9 @@
   var _index,
     lastIndex = 0,
     isScroll = false,
-    posArr = [1300, 1900, 2700, 3800];
+    posArr = [1210, 2010, 2810, 3550];
 
-  $sliderList.on('click', function () {
+  var handleScroll = function () {
     _index = $(this).index();
     if (isScroll) return;
     isScroll = true;
@@ -109,12 +110,20 @@
       $sliderList.eq(lastIndex).removeClass('is_on');
       lastIndex = _index; */
       isScroll = false;
-
     });
-  });
+  };
 
+  $step_list.on('click', handleScroll);
 
-})();
+  $sliderList.on('click', handleScroll);
+
+  $('.btn_top').on('click',function () {
+    $('html').animate({
+      scrollTop:0
+    },500)
+  })
+
+});
 
 //判断鼠标滚动方向
 /* $(document).on('mousewheel DOMMouseScroll', onMouseScroll);

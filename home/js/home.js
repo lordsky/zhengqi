@@ -168,6 +168,9 @@ var mapInit = function () {
     },
     tooltip: {
       formatter: function (params) {
+
+        //console.log(params);
+
         var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">这里可以写一些，想展示在页面上的别的信息</p>'
         return info;
       },
@@ -294,15 +297,50 @@ $nav_list.on('click', function (e) {
 
 //根据hash更改nav li的样式
 /*HASH*/
+
+var $nav_list = $('#nav_list'),
+  $nav_li = $nav_list.find('li');
 var classInit;
+
+var $line = $('.line');
+var pos = 0;
+var wid = 0;
+
+var lineChange = function () {
+  $active = $nav_list.find('.active');
+
+  var position = $active.position().left + 40;
+  var width = $active.width();
+  if (position >= pos) {
+    $line.animate({
+      width: ((position - pos) + width)
+    }, 300, function () {
+      $line.animate({
+        width: width,
+        left: position
+      }, 150);      
+    });
+  } else {
+    $line.animate({
+      left: position,
+      width: ((pos - position) + wid)
+    }, 300, function () {
+      $line.animate({
+        width: width
+      }, 150);      
+    });
+  }
+
+  pos = position;
+  wid = width;
+
+};
+
 window.onhashchange = classInit = function () {
-  var $nav_list = $('#nav_list'),
-    $nav_li = $nav_list.find('li');
 
   function changeClass(index) {
     $nav_li.eq(index).addClass('active').siblings().removeClass('active');
-    console.log('hash change');
-    
+    lineChange();
   }
 
   var url = window.location.href, //=>获取当前页面的URL地址  location.href='xxx'这种写法是让其跳转到某一个页面
@@ -335,16 +373,12 @@ window.onhashchange = classInit = function () {
       index = 0;
       changeClass(index);
   }
-  
+
 };
 classInit();
 
-var $nav = $('.nav_list');
-var $line = $('.line');
 
-var $active = $nav.find('.active');
-var pos = 0;
-var wid = 0;
+/* var $active = $nav_list.find('.active');
 
 if ($active.length) {
   pos = $active.position().left + 40;
@@ -354,9 +388,12 @@ if ($active.length) {
     left: pos,
     width: wid
   });
-}
+} */
 
-$nav.find('li a').click(function (e) {
+
+
+
+/* $nav.find('li a').click(function (e) {
   if (!$(this).parent().hasClass('active')) {
 
     var _this = $(this);
@@ -391,7 +428,7 @@ $nav.find('li a').click(function (e) {
     pos = position;
     wid = width;
   }
-});
+}); */
 
 // backup
 /* var $nav = $('.nav_list');
