@@ -8,54 +8,83 @@
   <title>Document</title>
   <link rel="stylesheet" href="../public/css/reset.min.css">
   <style>
-    html,
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      width: 100%;
-      height: 100%;
-    }
-
-    ul {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    li {
-      width: 100%;
-      height: 100%;
-    }
-
-    li:nth-child(1) {
-      background: #cac385;
-    }
-
-    li:nth-child(2) {
-      background: #b5f868;
-    }
-
-    li:nth-child(3) {
-      background: #1a8deb;
-    }
-
-    li:nth-child(4) {
-      background: #a65aec;
+      background: #1A1E23;
+      font-family: "Lato", sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    nav .line {
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      margin: 10px 0 0 0;
+      background: #FF1847;
+    }
+
+    nav ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 40px 0 0;
+      opacity: 0.4;
+      transition: all 0.4s ease;
+    }
+
+    nav ul li:hover {
+      opacity: 0.7;
+    }
+
+    nav ul li.active {
+      opacity: 1;
+    }
+
+    nav ul li:last-child {
+      margin-right: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+      display: block;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      font-size: 14px;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
   </style>
 </head>
 
 <body>
-  <div class="main_kv"></div>
+
   <nav>
-    <a href="#page_zq">政企</a>
-    <a href="#page_qt">全通</a>
-    <a href="#page_zx">智行</a>
-    <a href="#join_us">加入</a>
+    <ul>
+      <li class="active"><a href="##">网站首页</a></li>
+      <li class=""><a href="##">关于我们</a></li>
+      <li class=""><a href="##">产品介绍</a></li>
+    </ul>
+
+    <div class="line" style="left: 0px; width: 67px;"></div>
   </nav>
   <ul>
     <li id="page_zq"></li>
@@ -67,6 +96,59 @@
   <script src="../public/js/jquery-1.11.3.min.js"></script>
 
   <script>
+    var nav = $('nav');
+    var line = $('.line');
+
+    var active = nav.find('.active');
+    var pos = 0;
+    var wid = 0;
+
+    if (active.length) {
+      pos = active.position().left;
+      wid = active.width();
+      line.css({
+        left: pos,
+        width: wid
+      });
+    }
+
+    nav.find('ul li a').click(function (e) {
+      if (!$(this).parent().hasClass('active')) {
+        e.preventDefault();
+
+        var _this = $(this);
+
+        nav.find('ul li').removeClass('active');
+
+        var position = _this.parent().position();
+        var width = _this.parent().width();
+
+        if (position.left >= pos) {
+          line.animate({
+            width: ((position.left - pos) + width)
+          }, 300, function () {
+            line.animate({
+              width: width,
+              left: position.left
+            }, 150);
+            _this.parent().addClass('active');
+          });
+        } else {
+          line.animate({
+            left: position.left,
+            width: ((pos - position.left) + wid)
+          }, 300, function () {
+            line.animate({
+              width: width
+            }, 150);
+            _this.parent().addClass('active');
+          });
+        }
+
+        pos = position.left;
+        wid = width;
+      }
+    });
   </script>
 </body>
 

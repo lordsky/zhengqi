@@ -335,8 +335,118 @@ window.onhashchange = classInit = function () {
       index = 0;
       changeClass(index);
   }
+  
 };
 classInit();
+
+var $nav = $('.nav_list');
+var $line = $('.line');
+
+var $active = $nav.find('.active');
+var pos = 0;
+var wid = 0;
+
+if ($active.length) {
+  pos = $active.position().left + 40;
+  wid = $active.find('a').width();
+
+  $line.css({
+    left: pos,
+    width: wid
+  });
+}
+
+$nav.find('li a').click(function (e) {
+  if (!$(this).parent().hasClass('active')) {
+
+    var _this = $(this);
+
+    $nav.find('li').removeClass('active');
+
+    var position = _this.parent().position().left + 40;
+    var width = _this.width();
+
+    if (position >= pos) {
+      $line.animate({
+        width: ((position - pos) + width)
+      }, 300, function () {
+        $line.animate({
+          width: width,
+          left: position
+        }, 150);
+        _this.parent().addClass('active');
+      });
+    } else {
+      $line.animate({
+        left: position,
+        width: ((pos - position) + wid)
+      }, 300, function () {
+        $line.animate({
+          width: width
+        }, 150);
+        _this.parent().addClass('active');
+      });
+    }
+
+    pos = position;
+    wid = width;
+  }
+});
+
+// backup
+/* var $nav = $('.nav_list');
+var $line = $('.line');
+
+var $active = $nav.find('.active');
+var pos = 0;
+var wid = 0;
+
+if ($active.length) {
+  pos = $active.position().left + 40;
+  wid = $active.find('a').width();
+
+  $line.css({
+    left: pos,
+    width: wid
+  });
+}
+
+$nav.find('li a').click(function (e) {
+  if (!$(this).parent().hasClass('active')) {
+
+    var _this = $(this);
+
+    $nav.find('li').removeClass('active');
+
+    var position = _this.parent().position().left + 40;
+    var width = _this.width();
+
+    if (position >= pos) {
+      $line.animate({
+        width: ((position - pos) + width)
+      }, 300, function () {
+        $line.animate({
+          width: width,
+          left: position
+        }, 150);
+        _this.parent().addClass('active');
+      });
+    } else {
+      $line.animate({
+        left: position,
+        width: ((pos - position) + wid)
+      }, 300, function () {
+        $line.animate({
+          width: width
+        }, 150);
+        _this.parent().addClass('active');
+      });
+    }
+
+    pos = position;
+    wid = width;
+  }
+}); */
 
 
 
