@@ -1,4 +1,19 @@
 (function () {
+  var $nav_list = $('#nav_list');
+  var $active = $nav_list.find('.active');
+  var $line = $('.line');
+
+  if ($active.length) {
+    pos = $active.position().left + 40;
+    wid = $active.find('a').width();
+
+    $line.css({
+      left: pos,
+      width: wid
+    });
+  }
+
+
   var $news_img = $('.news_img'),
     $new_step_tit = $('.new_step_tit'),
     $new_step_box = $('.new_step_box'),
@@ -21,10 +36,10 @@
     ++count;
     console.log(count);
     /* $news_img.css('transform', 'translateY(' + -winTop / 3 + 'px)'); */
-   /*  $new_step_tit.css('transform', 'translateX(' + -winTop / 3 + 'px)');
-    $new_step_box.css(
-      'transform', 'translateX(' + winTop / 3 + 'px)'
-    ); */
+    /*  $new_step_tit.css('transform', 'translateX(' + -winTop / 3 + 'px)');
+     $new_step_box.css(
+       'transform', 'translateX(' + winTop / 3 + 'px)'
+     ); */
 
     clearInterval(throttle)
     throttle = null;
@@ -59,14 +74,14 @@
     if (winTop >= 1300 && winTop <= 1900) {
       _index = 0;
       if (_index === lastIndex) return;
-     
+
       $sliderList.eq(_index).addClass('is_on');
       $sliderList.eq(lastIndex).removeClass('is_on');
       lastIndex = _index;
     }
     if (winTop > 1900 && winTop <= 2700) {
       _index = 1;
-      if (_index === lastIndex) return; 
+      if (_index === lastIndex) return;
 
       $sliderList.eq(_index).addClass('is_on');
       $sliderList.eq(lastIndex).removeClass('is_on');
@@ -75,7 +90,7 @@
     if (winTop > 2700 && winTop <= 3800) {
       _index = 2;
       if (_index === lastIndex) return;
-     
+
       $sliderList.eq(_index).addClass('is_on');
       $sliderList.eq(lastIndex).removeClass('is_on');
       lastIndex = _index;

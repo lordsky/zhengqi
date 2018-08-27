@@ -1,4 +1,20 @@
 $(function () {
+  var $nav_list = $('#nav_list');
+  var $active = $nav_list.find('.active');
+  var $line = $('.line');  
+  
+  if ($active.length) {
+    pos = $active.position().left + 40;
+    wid = $active.find('a').width();
+
+    $line.css({
+      left: pos,
+      width: wid
+    });
+  }
+
+
+
   var $news_img = $('.news_img'),
     $new_step_tit = $('.new_step_tit'),
     $new_step_box = $('.new_step_box'),
@@ -117,10 +133,10 @@ $(function () {
 
   $sliderList.on('click', handleScroll);
 
-  $('.btn_top').on('click',function () {
+  $('.btn_top').on('click', function () {
     $('html').animate({
-      scrollTop:0
-    },500)
+      scrollTop: 0
+    }, 500)
   })
 
 });
