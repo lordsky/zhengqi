@@ -19,7 +19,6 @@ body {
   height: 70px;
   line-height: 70px;
   background: #fff;
-  
   h1 {
     float: left;
     margin: 4px 0 0 0;
@@ -57,7 +56,7 @@ body {
         border-radius: 2px;
         font-family: "microsoft yahei", arial, sans-serif;
       }
-      &.send_resume{
+      &.send_resume {
         padding-right: 0;
       }
       &:hover a {
@@ -156,10 +155,11 @@ body {
             transition: left .3s;
             .hover_cont {
               position: absolute;
-              top: 15%;
+              top: 12%;
               left: 50%;
               margin-left: -35%;
               width: 70%;
+              height: 100%;
               text-align: center;
               .hover_icon {
                 display: inline-block;
@@ -169,9 +169,11 @@ body {
               }
               p {
                 margin: 7% 0 10%;
+                height: 30%;
+                overflow: hidden;
                 color: #FFF;
                 font-size: 20px;
-                line-height: 39px;
+                line-height: 35px;
                 font-weight: 100;
                 text-indent: 2px;
               }
@@ -414,6 +416,26 @@ body {
         height: 41px;
         margin-right: 10px;
         background: url(../img/copy_icon.png) no-repeat;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .hover_box {
+    .hover_cont {
+      .hover_icon {
+        width: 100px;
+        height: 100px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 20px;
+      }
+      .hover_link {
+        width: 120px;
+        height: 35px;
+        font-size: 19px;
       }
     }
   }
