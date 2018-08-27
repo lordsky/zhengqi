@@ -3,131 +3,47 @@ var mapInit = function () {
   //地图容器
   var chart = echarts.init(document.getElementById('page_map'));
   //34个省、市、自治区的名字拼音映射数组
-  /*  var provinces = {
-     //23个省
-     "台湾": "taiwan",
-     "河北": "hebei",
-     "山西": "shanxi",
-     "辽宁": "liaoning",
-     "吉林": "jilin",
-     "黑龙江": "heilongjiang",
-     "江苏": "jiangsu",
-     "浙江": "zhejiang",
-     "安徽": "anhui",
-     "福建": "fujian",
-     "江西": "jiangxi",
-     "山东": "shandong",
-     "河南": "henan",
-     "湖北": "hubei",
-     "湖南": "hunan",
-     "广东": "guangdong",
-     "海南": "hainan",
-     "四川": "sichuan",
-     "贵州": "guizhou",
-     "云南": "yunnan",
-     "陕西": "shanxi1",
-     "甘肃": "gansu",
-     "青海": "qinghai",
-     //5个自治区
-     "新疆": "xinjiang",
-     "广西": "guangxi",
-     "内蒙古": "neimenggu",
-     "宁夏": "ningxia",
-     "西藏": "xizang",
-     //4个直辖市
-     "北京": "beijing",
-     "天津": "tianjin",
-     "上海": "shanghai",
-     "重庆": "chongqing",
-     //2个特别行政区
-     "香港": "xianggang",
-     "澳门": "aomen"
-   }; */
+  var provinces = {
+    //23个省
+    "台湾": "taiwan",
+    "河北": "hebei",
+    "山西": "shanxi",
+    "辽宁": "liaoning",
+    "吉林": "jilin",
+    "黑龙江": "heilongjiang",
+    "江苏": "jiangsu",
+    "浙江": "zhejiang",
+    "安徽": "anhui",
+    "福建": "fujian",
+    "江西": "jiangxi",
+    "山东": "shandong",
+    "河南": "henan",
+    "湖北": "hubei",
+    "湖南": "hunan",
+    "广东": "guangdong",
+    "海南": "hainan",
+    "四川": "sichuan",
+    "贵州": "guizhou",
+    "云南": "yunnan",
+    "陕西": "shanxi1",
+    "甘肃": "gansu",
+    "青海": "qinghai",
+    //5个自治区
+    "新疆": "xinjiang",
+    "广西": "guangxi",
+    "内蒙古": "neimenggu",
+    "宁夏": "ningxia",
+    "西藏": "xizang",
+    //4个直辖市
+    "北京": "beijing",
+    "天津": "tianjin",
+    "上海": "shanghai",
+    "重庆": "chongqing",
+    //2个特别行政区
+    "香港": "xianggang",
+    "澳门": "aomen"
+  };
 
-  // 全国省份列表
-  var dataMap = [{
-      name: '北京'
-    }, {
-      name: '天津'
-    }, {
-      name: '上海'
-    }, {
-      name: '重庆'
-    }, {
-      name: '河北'
-    }, {
-      name: '河南'
-    }, {
-      name: '云南'
-    }, {
-      name: '辽宁'
-    }, {
-      name: '黑龙江'
-    }, {
-      name: '湖南'
-    }, {
-      name: '安徽'
-    }, {
-      name: '山东'
-    },
-    {
-      name: '新疆'
-    }, {
-      name: '江苏'
-    }, {
-      name: '浙江'
-    }, {
-      name: '江西'
-    }, {
-      name: '湖北'
-    }, {
-      name: '广西'
-    }, {
-      name: '甘肃'
-    }, {
-      name: '山西'
-    }, {
-      name: '内蒙古'
-    }, {
-      name: '陕西'
-    }, {
-      name: '吉林'
-    }, {
-      name: '福建'
-    }, {
-      name: '贵州'
-    },
-    {
-      name: '广东'
-    }, {
-      name: '青海'
-    }, {
-      name: '西藏'
-    }, {
-      name: '四川'
-    }, {
-      name: '宁夏'
-    }, {
-      name: '海南'
-    }, {
-      name: '台湾'
-    }, {
-      name: '香港'
-    }, {
-      name: '澳门'
-    }
-  ]
-  // 需要在页面上直接标记出来的城市
-  var specialMap = ['浙江', '云南', '陕西'];
-  // 对dataMap进行处理，使其可以直接在页面上展示
-  for (var i = 0; i < specialMap.length; i++) {
-    for (var j = 0; j < dataMap.length; j++) {
-      if (specialMap[i] == dataMap[j].name) {
-        dataMap[j].selected = true;
-        break;
-      }
-    }
-  }
 
   //直辖市和特别行政区-只有二级地图，没有三级地图
   var special = ["北京", "天津", "上海", "重庆", "香港", "澳门"];
@@ -144,6 +60,19 @@ var mapInit = function () {
     mapdata = d;
     //注册地图
     echarts.registerMap('china', data);
+    // 需要在页面上直接标记出来的城市
+    var specialMap = ['北京', '湖北', '上海', '广东'];
+    // 对dataMap进行处理，使其可以直接在页面上展示
+    for (var i = 0; i < specialMap.length; i++) {
+      for (var j = 0; j < d.length; j++) {
+        if (specialMap[i] == d[j].name) {
+          console.log(d[j]);
+          d[j].selected = true;
+          break;
+        }
+      }
+    }
+
     //绘制地图
     renderMap('china', d);
   });
@@ -157,7 +86,12 @@ var mapInit = function () {
       subtext: '',
       link: '',
       left: 'center',
-
+      textStyle: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'normal',
+        fontFamily: "Microsoft YaHei"
+      },
       subtextStyle: {
         color: '',
         text: '',
@@ -171,15 +105,15 @@ var mapInit = function () {
 
         //console.log(params);
 
-        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">这里可以写一些，想展示在页面上的别的信息</p>'
+        var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">这里可以写一些，想展示在页面上的别的信息</p>';
         return info;
       },
       backgroundColor: "#ff7f50", //提示标签背景颜色
       textStyle: {
         color: "#fff"
-      } //提示标签字体颜色
+      }, //提示标签字体颜色
 
-      /* trigger: 'item',
+     /*  trigger: 'item',
       formatter: '{b}' */
     },
 
@@ -196,7 +130,9 @@ var mapInit = function () {
       type: 'map',
       mapType: map,
       roam: false,
-
+      nameMap: {
+        'china': '中国'
+      },
       label: {
         normal: {
           show: false,
@@ -206,7 +142,7 @@ var mapInit = function () {
           }
         },
         emphasis: {
-          show: false,
+          show: true,
           textStyle: {
             color: '#fff',
             fontSize: 13
@@ -231,6 +167,39 @@ var mapInit = function () {
 
 window.onload = function () {
   mapInit();
+}
+
+// main_kv 跟随鼠标提示
+var tip = {
+  $: function (ele) {
+    if (typeof (ele) == "object")
+      return ele;
+    else if (typeof (ele) == "string" || typeof (ele) == "number")
+      return document.getElementById(ele.toString());
+    return null;
+  },
+  mousePos: function (e) {
+    var x, y;
+    var e = e || window.event;
+    return {
+      x: e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft,
+      y: e.clientY + document.body.scrollTop + document.documentElement.scrollTop
+    };
+  },
+  start: function (obj) {
+    var self = this;
+    var t = self.$("mjs:tip");
+    obj.onmousemove = function (e) {
+      var mouse = self.mousePos(e);
+      t.style.left = mouse.x + 10 + 'px';
+      t.style.top = mouse.y + 10 + 'px';
+      t.innerHTML = obj.getAttribute("tips");
+      t.style.display = '';
+    };
+    obj.onmouseout = function () {
+      t.style.display = 'none';
+    };
+  }
 }
 
 
@@ -261,12 +230,12 @@ window.onload = function () {
 // })();
 
 // 计算swiper_wrapper的高度
-var $header = $('.header'),
+/* var $header = $('.header'),
   $swiper_wrapper = $('.swiper_wrapper');
 var winH = document.activeElement.clientHeight;
 var swiperH = winH - $header.height();
 
-$swiper_wrapper.css('height', swiperH);
+$swiper_wrapper.css('height', swiperH); */
 
 // 点击主KV进入招聘主页
 /* var $main_kv = $('.main_kv'),
@@ -318,7 +287,7 @@ var lineChange = function () {
       $line.animate({
         width: width,
         left: position
-      }, 150);      
+      }, 150);
     });
   } else {
     $line.animate({
@@ -327,7 +296,7 @@ var lineChange = function () {
     }, 300, function () {
       $line.animate({
         width: width
-      }, 150);      
+      }, 150);
     });
   }
 

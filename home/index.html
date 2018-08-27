@@ -19,11 +19,19 @@
   <!-- Echarts3 -->
   <script type="text/javascript" src="../public/js/echarts.min.js"></script>
 
+  <style>
+  </style>
+
+  <script type="text/javascript">
+  </script>
+
 </head>
 
 <body>
 
-  <div class="main_kv">
+  <div class="main_kv" onmouseover="tip.start(this)" tips="加入我们吧!">
+    <div id="mjs:tip" class="tip" style="position:absolute;left:0;top:0;display:none;"></div>
+
     <a href="#page_home">
       <div class="logo">
         <h1>中国移动
@@ -46,7 +54,9 @@
         <ul class="nav_list" id="nav_list">
 
           <li class="after">
-            <a href="#page_home">首页</a>
+            <a href="#page_home">
+              <!-- <h3>首页</h3> -->
+              首页</a>
           </li>
 
           <li class="after">
@@ -83,9 +93,9 @@
           <div class="hover_box">
             <div class="hover_cont">
               <a href="http://www.cmccsi.cn" target="_blank" class="hover_icon"></a>
-              <p>8月6日，据纽约时报网站报道，和其他科技巨头一直在忙于将自己打造为多元化的互联网帝国，同时也使风险投资公司赚得盆满钵满。一连串的收购交易让人难以理解。斥资160亿美元(约合人民币987亿元)收购消息应用，斥资10亿美元(约合人民币62亿元)收购消息应用</p>
+              <p>中移全通系统集成有限公司成立于1999年10月，是中国移动通信集团旗下全资子公司。以IT服务为立足点，将核心业务聚焦到融合通信，安全服务，信息化系统研发、集成与运维，ICT产品研发、实施与运维，互联网业务开发与运营等领域。依托中国移动通信集团公司及各省公司，为政府机关和各行业客户的百余项大型ICT项目提供了一站式服务</p>
               <a href="../zhengqi/" class="hover_link">
-                立即进入
+                进入官网
               </a>
             </div>
           </div>
@@ -101,9 +111,14 @@
           <div class="hover_box">
             <div class="hover_cont">
               <a href="https://zhengqi.10086.cn" target="_blank" class="hover_icon"></a>
-              <p>8月6日，据纽约时报网站报道，和其他科技巨头一直在忙于将自己打造为多元化的互联网帝国，同时也使风险投资公司赚得盆满钵满。一连串的收购交易让人难以理解。斥资160亿美元(约合人民币987亿元)收购消息应用，斥资10亿美元(约合人民币62亿元)收购消息应用Instagram</p>
+              
+                <p>
+                中国移动通信集团有限公司政企客户分公司，成立于2012年8月，是中国移动通信集团有限公司下属负责面向政府、企业客户市场，开展行业数字化业务经营的公司。 在5G、物联网、云计算等通信技术快速发展的新形势下，移动政企作为中国移动集团“大连接”战略落地的重要驱动力之一，倾力打造“智慧政企”工程，利用在移动互联网、物联网、云计算、大数据等方面的优势，针对各行业政企客户提供信息化产品及服务，赋能行业智慧化。
+                 目前，中国移动政企分公司已经建立了集产品应用创新、行业方案整合、ICT建设实施、售后服务保障为一体，贯穿售前、售中、售后端到端的运营体系和专业团队，业务领域覆盖了专线、IDC、云计算、企业融合通信等各类企业通信和信息化产品，以及政务、金融、交通、教育、医疗、工业、能源、互联网、农业、商贸等行业信息化解决方案。
+              </p>
+              
               <a href="../zhengqi/" class="hover_link">
-                立即进入
+                进入官网
               </a>
             </div>
           </div>
@@ -119,9 +134,9 @@
           <div class="hover_box">
             <div class="hover_cont">
               <a href="http://www.cm-dt.com/" target="_blank" class="hover_icon"></a>
-              <p>8月6日，据纽约时报网站报道，和其他科技巨头一直在忙于将自己打造为多元化的互联网帝国，同时也使风险投资公司赚得盆满钵满。一连串的收购交易让人难以理解。斥资160亿美元(约合人民币987亿元)收购消息应用，斥资10亿美元(约合人民币62亿元)收购消息应用</p>
+              <p>中移智行网络科技有限公司是中国移动集团有限公司全资子公司，作为中国移动面向交通行业的车联网专业公司，于2018年6月27日正式揭牌成立，公司总部位于上海市浦东新区，在北京、武汉各设有分公司。中移智行作为中国移动在大交通行业的销售支撑和建设运营主体，通过人、车、数据的端到端运营，转化为跨界运营的产品和服务，构建交通行业服务生态，继而成为业界领先的车联网服务提供商。</p>
               <a href="../zhengqi/" class="hover_link">
-                立即进入
+                进入官网
               </a>
             </div>
           </div>
@@ -200,29 +215,17 @@
   </div> -->
 
   <script src="../public/js/jquery-1.11.3.min.js"></script>
+  <script src="../public/js/iscroll-lite.js"></script>
   <!-- <script src="../public/js/swiper-4.3.3.min.js"></script> -->
 
   <script src="js/home.js"></script>
 
-  <style lang="less">
-    @media screen and (max-width: 1400px) {
-
-      .hover_box .hover_cont .hover_icon {
-        width: 100px;
-        height: 100px;
-      }
-      .hover_box .hover_cont p {
-        font-size: 14px;
-        line-height: 20px;
-      }
-      .hover_box .hover_cont .hover_link {
-        width: 120px;
-        height: 35px;
-        font-size: 19px;
-      }
-    }
-  </style>
-
+  <script>
+    var myScroll = new IScroll('#wrapper', {
+      mouseWheel: true,
+      scrollbars: true
+    });
+  </script>
 </body>
 
 </html>
