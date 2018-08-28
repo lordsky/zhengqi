@@ -124,41 +124,26 @@ body {
 
 .inner {
   width: 100%;
-  height: 800px;
+  height: 900px;
+  padding-top: 150px;
+  background: url(../img/bg.png) no-repeat;
   .new_step {
-    position: relative;
     .new_step_tit {
-      position: absolute;
-      top: 63px;
-      left: 0;
-      width: 300px;
-      height: 635px;
-      background: #258cff;
-      background-image: -webkit-linear-gradient(to right, #0a92d9, #0080c4);
-      background-image: linear-gradient(to right, #0a92d9, #0080c4);
-      transition: .5s;
-      h2 {
-        position: absolute;
-        top: 40px;
-        left: 40px;
-        width: 176px;
-        height: 191px;
-        background: url('../img/spr-news.png') no-repeat;
-        background-position: -211px -192px;
+      img {
+        display: block;
+        margin: 0 auto;
       }
     }
     .new_step_box {
-      position: absolute;
-      top: 84px;
-      left: 280px;
+      position: relative;
       width: 920px;
       height: 577px;
-      background: rgba(245, 246, 251, .95);
-      box-sizing: border-box;
-      padding: 118px 0 0 135px;
+      margin: 150px auto 0;
+      padding-left: 55px; //background: rgba(245, 246, 251, .95);
+      box-sizing: border-box; //padding: 118px 0 0 135px;
       /* background-image: linear-gradient(to right, #258cff, #4450ff, #4d3dff); */
-      transition: 1s;
-      &:before {
+      //transition: 1s;
+      /* &:before {
         display: block;
         position: absolute;
         top: 0px;
@@ -167,10 +152,11 @@ body {
         width: 10px;
         height:577px;
         background: rgba(245, 246, 251, .95)
-      }
+      } */
       .inner_box {
         width: 750px;
         height: 220px;
+        margin: 0 auto;
         border: 2px solid #0080c4;
         border-color: #0080c4 #0080c4 #0080c4 transparent;
         ul {
@@ -300,7 +286,7 @@ body {
         position: absolute;
         bottom: 50px;
         left: 50%;
-        margin-left: -140px;
+        margin-left: -180px;
         a {
           display: inline-block;
           width: 128px;
@@ -312,6 +298,7 @@ body {
           border: 1px solid #0080c4;
           border-radius: 19px;
           margin: 0 25px;
+          transition: 0.2s;
           &:hover {
             color: #fff;
             background: #0080c4;
