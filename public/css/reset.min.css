@@ -229,7 +229,7 @@ button:-moz-focusring,
     font: inherit
 }
 
-.clear:after {
+.clearfix:after {
     display: block;
     height: 0;
     content: "";
