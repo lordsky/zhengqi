@@ -92,11 +92,21 @@ body {
   background-size: 100% 100%; //cursor: pointer;
   // main_kv 鼠标提示
   .tip {
-    width: 70px; //border: 2px solid #ddd;
+    width: 101px; //border: 2px solid #ddd;
+    height: 31px;
     padding: 10px;
-    background: rgba(255, 255, 255, .7);
+    background: url(../img/enter.png) no-repeat;
     color: #666;
     border-radius: 10px;
+    i{
+      position: absolute;
+      top: 10px;
+      right: 28px;
+      width: 14px;
+      height: 13px;
+      background: url(../img/enter_arrow.png) no-repeat;
+      animation: arrow 1s infinite;
+    }
   }
   a {
     display: block;
@@ -129,6 +139,17 @@ body {
   }
 }
 
+@keyframes arrow{
+  0%{
+    transform: translateX(0px);
+  }
+  50%{
+    transform: translateX(6px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
 .container {
   position: relative;
   width: 100%;
@@ -142,12 +163,22 @@ body {
       height: 100%;
       position: relative; //display: none;
       &.page_2 {
-        background: url(../img/page_bg_2.jpg) center no-repeat;
+        background: url(../img/page_bg_2.png) center no-repeat;
         background-size: cover;
-        #page_map {
+        .page_map{
+          width: 100%;
+          padding-top: 100px;
+          img{
+            display: block;
+            width: 77.8%;
+            height: 70.9%;
+            margin: 0 auto;
+          }
+        }
+        /* #page_map {
           width: 100%;
           height: 100%;
-        }
+        } */
       }
       &.page_3 {
         .cont_cmt {
@@ -248,13 +279,14 @@ body {
           }
           .hover_box {
             .hover_cont {
-              top: 20%;
+              top: 30%;
               .hover_icon {
                 width: 140px;
                 height: 120px;
                 background: url(../img/logo_qt_h.png) center no-repeat;
               }
               p {
+                margin: 10% 0 10%;
                 height: 35%;
               }
             }
@@ -282,7 +314,8 @@ body {
                 background: url(../img/logo_zq_h.png) center no-repeat;
               }
               p {
-                height: 50%;
+                margin: 10% 0 10%;
+                height: 35%;
               }
             }
           }
@@ -302,7 +335,7 @@ body {
           }
           .hover_box {
             .hover_cont {
-              top: 20%;
+              top: 30%;
               .hover_icon {
                 width: 140px;
                 height: 120px;
@@ -344,20 +377,20 @@ body {
             position: relative;
             a {
               position: absolute;
-              top: 56px;
-              left: -250px;
+              top: 100px;
+              left: -190px;
               display: inline-block;
               margin: 0 20px;
-              width: 250px;
-              height: 65px;
-              line-height: 65px;
+              width: 200px;
+              height: 52px;
+              line-height: 52px;
               text-align: center; //line-height: 60px;
-              font-size: 37px;
+              font-size: 32px;
               font-weight: 100;
               color: #FFF;
               border: 2px solid #FFF; //border-radius: 10px;
               &:nth-of-type(2) {
-                left: 200px;
+                left: 232px;
               }
               &:hover {
                 background-color: #0080C9;
@@ -395,16 +428,19 @@ body {
         background-size: cover;
         .offi {
           .offi_bg {
-            width: 319px;
-            height: 267px;
+            width: 246px;
+            height: 214px;
             background: url(../img/logo_zq.png) no-repeat; //background-position: -20px -20px;
-            background-size: 98%;
+            background-size: 100%;
+            transform: translateY(-7px);
             i {
-              right: -50px;
+              /* right: -50px;
+              bottom: 7px; */
+              right: -45px;
               bottom: 7px;
             }
             &:hover i {
-              right: -60px;
+              right: -55px;
             }
           }
         }

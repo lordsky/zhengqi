@@ -335,7 +335,7 @@ var tip = {
       var mouse = self.mousePos(e);
       t.style.left = mouse.x + 20 + 'px';
       t.style.top = mouse.y + 0 + 'px';
-      t.innerHTML = obj.getAttribute("tips");
+      //t.innerHTML = obj.getAttribute("tips");
       t.style.display = '';
     };
     obj.onmouseout = function () {
