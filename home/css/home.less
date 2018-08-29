@@ -56,6 +56,8 @@ body {
       background: #0080c5;
     }
     li {
+      /* width: 206px;
+      box-sizing: border-box; */
       float: left; //width: 183px;
       height: 70px;
       line-height: 70px;
@@ -64,20 +66,27 @@ body {
       text-align: center;
       a {
         font-size: 21px;
-        color: rgb(58, 58, 58); //padding: 0 10px;
+        color: rgb(58, 58, 58);
         display: block;
-        border-radius: 2px; //font-weight: 550;
+        border-radius: 2px;
         font-family: "microsoft yahei", arial, sans-serif;
+        &:hover {
+          color: #0080c5;
+        }
       }
+      
       &.send_resume {
         padding-right: 0;
       }
-      &:hover a {
-        color: #0080c5; //background: #0080c5;
-        //opacity: 0.7;
+      .r_link {        
+        height: 0;
+        overflow: hidden;
+        background: #fff;
+        background: rgba(245, 246, 251, 0.75);
+        transition: .3s;
       }
-      &.active a {
-        color: #0080c5; //background: #0080c5;
+      &:hover .r_link {
+        height: 140px;
       }
     }
   }
@@ -96,9 +105,8 @@ body {
     height: 31px;
     padding: 10px;
     background: url(../img/enter.png) no-repeat;
-    color: #666;
-    //border-radius: 10px;
-    i{
+    color: #666; //border-radius: 10px;
+    i {
       position: absolute;
       top: 10px;
       right: 28px;
@@ -139,17 +147,18 @@ body {
   }
 }
 
-@keyframes arrow{
-  0%{
+@keyframes arrow {
+  0% {
     transform: translateX(0px);
   }
-  50%{
+  50% {
     transform: translateX(6px);
   }
-  100%{
+  100% {
     transform: translateX(0px);
   }
 }
+
 .container {
   position: relative;
   width: 100%;
@@ -165,20 +174,16 @@ body {
       &.page_2 {
         background: url(../img/page_bg_2.png) center no-repeat;
         background-size: cover;
-        .page_map{
+        .page_map {
           width: 100%;
           padding-top: 100px;
-          img{
+          img {
             display: block;
             width: 77.8%;
             height: 70.9%;
             margin: 0 auto;
           }
         }
-        /* #page_map {
-          width: 100%;
-          height: 100%;
-        } */
       }
       &.page_3 {
         .cont_cmt {
@@ -430,12 +435,10 @@ body {
           .offi_bg {
             width: 246px;
             height: 214px;
-            background: url(../img/logo_zq.png) no-repeat; //background-position: -20px -20px;
+            background: url(../img/logo_zq.png) no-repeat;
             background-size: 100%;
             transform: translateY(-7px);
             i {
-              /* right: -50px;
-              bottom: 7px; */
               right: -45px;
               bottom: 7px;
             }
@@ -469,26 +472,28 @@ body {
         background-size: cover;
         .offi {
           .offi_bg {
-            width: 246px;
+            width: 359px;
             height: 214px;
-            background: url(../img/logo_zx.png) no-repeat;
+            background: url(../img/logo_zx_c.png) no-repeat;
             background-size: 100% 100%;
             i {
               right: -45px;
-              bottom: 0px;
+              bottom: 40px;
             }
             &:hover i {
               right: -55px;
             }
           }
-        }
-        /*   .offi {
-          .offi_bg {
-            width: 279px;
-            height: 289px;
-            background: url(../img/logo_bg_zy.png) no-repeat !important;
+          .invite {
+            a {
+              top: 100px;
+              left: -150px;
+              &:nth-of-type(2) {
+                left: 288px;
+              }
+            }
           }
-        } */
+        }
       }
     }
   } //.swiper-wrapper end
@@ -516,28 +521,3 @@ body {
     }
   }
 }
-
-//.swiper-container end
-/* .page_idx {
-  position: fixed;
-  top: 50%;
-  right: 50px;
-  z-index: 9999;
-  width: 10px;
-  height: 30%;
-  transform: translateY(-50%);
-  li {
-    display: block;
-    width: 8px;
-    height: 8px;
-    border: 2px solid #fff;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    cursor: pointer;
-    transition: .3s;
-    &.active {
-      height: 20px;
-      background: #FFF;
-    }
-  }
-} */
