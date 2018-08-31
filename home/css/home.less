@@ -175,9 +175,15 @@ body {
         background-size: cover;
         .page_map {
           position: absolute;
-          top: 20%;
+          height: 62.6%;
+          top: 50%;
           left: 20%;
+          transform: translateY(-50%);
           color: #fff;
+          overflow-y: auto;
+          &::-webkit-scrollbar {
+            display: none;
+          }
           .city_title {
             h3 {
               font-size: 44px;
@@ -188,7 +194,6 @@ body {
           }
           .city {
             margin-top: 40px;
-            //margin-top: 4.1%;
             h4 {
               font-size: 32px;
             }
@@ -211,7 +216,7 @@ body {
                 background: #0080c5c9;
               }
             }
-            .last{
+            .last {
               margin-left: 44px;
             }
           }
@@ -450,8 +455,6 @@ body {
         background-size: cover;
         .offi {
           .offi_bg {
-            /*  width: 500px;
-            height: 210px; */
             background: url(../img/page_zq_logo.png) no-repeat;
             background-size: 100%;
             transform: translateY(-7px);
