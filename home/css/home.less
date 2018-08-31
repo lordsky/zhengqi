@@ -64,12 +64,12 @@ body {
       padding: 0 40px;
       box-sizing: border-box;
       text-align: center;
-      a {       
+      a {
         font-size: 22px;
         color: #424242;
         display: block;
         border-radius: 2px;
-         font-family: "microsoft yahei", arial, sans-serif;
+        font-family: "microsoft yahei", arial, sans-serif;
         &:hover {
           color: #0080c5;
         }
@@ -171,16 +171,48 @@ body {
       height: 100%;
       position: relative; //display: none;
       &.page_2 {
-        background: url(../img/page_bg_2.png) center no-repeat;
+        background: url(../img/page_bg_2.jpg) center no-repeat;
         background-size: cover;
         .page_map {
-          width: 100%;
-          padding-top: 100px;
-          img {
-            display: block;
-            width: 77.8%;
-            height: 70.9%;
-            margin: 0 auto;
+          position: absolute;
+          top: 20%;
+          left: 20%;
+          color: #fff;
+          .city_title {
+            h3 {
+              font-size: 44px;
+            }
+            p {
+              font-size: 36px;
+            }
+          }
+          .city {
+            margin-top: 40px;
+            h4 {
+              font-size: 32px;
+            }
+            p {
+              font-size: 21px;
+              margin: 13px 0 10px;
+            }
+            a {
+              display: inline-block;
+              width: 150px;
+              height: 36px;
+              line-height: 36px;
+              font-size: 18px;
+              color: #0080c5;
+              background: rgba(255, 255, 255, 0.788);
+              border-radius: 5px;
+              text-align: center;
+              &:hover {
+                color: #fff;
+                background: #0080c5c9;
+              }
+            }
+            .last{
+              margin-left: 44px;
+            }
           }
         }
       }
@@ -355,17 +387,27 @@ body {
       &.offi_cmt {
         .offi {
           position: absolute;
-          top: 42%;
+          top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
           .offi_bg {
-            position: relative;
-            /* width: 316px;
-            height: 101px; */
+            position: relative; //width: 640px ;
+            width: 500px;
+            height: 210px;
+            margin: 0 auto;
             a {
               display: block;
               width: 100%;
               height: 100%;
+            }
+            a:nth-of-type(2) {
+              text-align: center;
+              font-size: 18px;
+              height: 20px;
+              color: #fff;
+              &:hover {
+                text-decoration: underline;
+              }
             }
             i {
               position: absolute;
@@ -378,23 +420,21 @@ body {
             }
           }
           .invite {
-            position: relative;
+            width: 640px;
+            height: 52px;
+            margin: 60px auto 0;
             a {
-              position: absolute;
-              top: 100px;
-              left: -190px;
               display: inline-block;
-              margin: 0 20px;
               width: 200px;
               height: 52px;
               line-height: 52px;
-              text-align: center; //line-height: 60px;
+              text-align: center;
               font-size: 32px;
               font-weight: 100;
               color: #FFF;
-              border: 2px solid #FFF; //border-radius: 10px;
+              border: 2px solid #FFF;
               &:nth-of-type(2) {
-                left: 232px;
+                float: right;
               }
               &:hover {
                 background-color: #0080C9;
@@ -403,38 +443,15 @@ body {
             }
           }
         }
-        .qr_icon {
-          position: absolute;
-          right: 50px;
-          bottom: 50px;
-          i {
-            display: block;
-            width: 87px;
-            height: 91px;
-            background: url(../img/qr_icon_1.png) no-repeat;
-            background-size: cover;
-          }
-          img {
-            display: none;
-            position: absolute;
-            top: -92px;
-            left: -126px;
-            width: 132px;
-            height: 165px; //transition:all 1s;
-          }
-          &:hover i {
-            background: url(../img/qr_icon_2.png) no-repeat;
-          }
-        }
       } //offi_cmt end
       &.page_4 {
         background: url(../img/page_bg_4.jpg) center no-repeat;
         background-size: cover;
         .offi {
           .offi_bg {
-            width: 246px;
-            height: 214px;
-            background: url(../img/logo_zq.png) no-repeat;
+            /*  width: 500px;
+            height: 210px; */
+            background: url(../img/page_zq_logo.png) no-repeat;
             background-size: 100%;
             transform: translateY(-7px);
             i {
@@ -452,9 +469,7 @@ body {
         background-size: cover;
         .offi {
           .offi_bg {
-            width: 246px;
-            height: 214px;
-            background: url(../img/logo_qt.png) no-repeat;
+            background: url(../img/page_qt_logo.png) no-repeat;
             background-size: 100% 100%;
             i {
               right: -45px;
@@ -471,25 +486,14 @@ body {
         background-size: cover;
         .offi {
           .offi_bg {
-            width: 359px;
-            height: 214px;
-            background: url(../img/logo_zx_c.png) no-repeat;
+            background: url(../img/page_zx_logo.png) no-repeat;
             background-size: 100% 100%;
             i {
               right: -45px;
-              bottom: 40px;
+              bottom: 7px;
             }
             &:hover i {
               right: -55px;
-            }
-          }
-          .invite {
-            a {
-              top: 100px;
-              left: -150px;
-              &:nth-of-type(2) {
-                left: 288px;
-              }
             }
           }
         }
