@@ -89,7 +89,7 @@ body {
   background: url(../img/cont_bg.png) no-repeat;
   background-attachment: fixed;
   .recruit_link {
-    display: flex;   
+    display: flex;
     padding-bottom: 70px;
     div {
       position: relative;
@@ -121,6 +121,19 @@ body {
     }
   }
   .process {
+    position: relative;
+    width: 985px;
+    margin: 0 auto;
+    a {
+      position: absolute;
+      top: 88px;
+      right: 51px;
+      font-size: 15px;
+      color: #177fbe;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
     img {
       display: block;
       width: 985px;
@@ -134,16 +147,29 @@ body {
     }
   }
   .enrollment {
+    position: relative;
     margin-top: 100px;
+    width: 872px;
+    margin: 0 auto;
+    a {
+      position: absolute;
+      top: 211px;
+      left: 184px;
+      color: #3f3b3a;
+      font-size: 13px;      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
     img {
       display: block;
       margin: 0 auto 60px;
     }
-    .enrollment{
-      li{
+    .enrollment {
+      li {
         width: 400px;
         height: 118px;
-        border:1px solid #0080c4;
+        border: 1px solid #0080c4;
         border-radius: 6px;
       }
     }
