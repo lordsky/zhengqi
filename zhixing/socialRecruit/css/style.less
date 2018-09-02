@@ -88,8 +88,7 @@ body {
 
 .inner {
   width: 100%;
- 
-  padding: 80px 0 100px;
+  padding: 80px 0 0;
   background: url(../img/bg.png) no-repeat;
   .recruit_link {
     display: flex;
@@ -97,22 +96,28 @@ body {
     div {
       position: relative;
       flex: 1;
+      p {
+        margin: 100px auto 0;
+        width: 447px;
+        font-size: 19px;
+        color: #000;
+      }
       a {
         position: absolute;
         top: 50%;
         left: 50%;
-        margin: -32px 0 0 -223px;
+        margin: 70px 0 0 -223px;
         width: 447px;
-        height: 64px;
-        line-height: 64px;
+        height: 50px;
+        line-height: 50px;
         text-align: center;
         color: #fff;
         font-size: 24px;
         background: #0080c4;
         border-radius: 8px;
-        &:hover {
+      
           text-decoration: underline;
-        }
+        
       }
     }
   }
@@ -123,160 +128,15 @@ body {
         margin: 0 auto;
       }
     }
-    .new_step_box {    
-      margin: 120px auto 0;    
+    .new_step_box {
+      position: relative;
+      margin: 30px auto 0;
+      width: 1200px;
       box-sizing: border-box;
-      .inner_box {
-        width: 750px;
-        height: 220px;
-        margin: 0 auto;
-        border: 2px solid #0080c4;
-        border-color: #0080c4 #0080c4 #0080c4 transparent;
-        ul {
-          li {
-            position: relative;
-            float: left;
-            width: 20%;
-            i {
-              //position: absolute;
-              display: block;
-              width: 99px;
-              height: 99px;
-              background: url(../img/progress_icon.png) no-repeat;
-              background-position: 0 -110px;
-            }
-            p {
-              width: 100px;
-              margin-top: 10px;
-              font-size: 16px;
-              color: #666666;
-              text-align: center;
-            }
-          }
-          .item_1 {
-            top: -53px;
-            left: -53px;
-            i {
-              background-position: 0 -110px;
-            }
-            &:hover i {
-              background-position: 0 1px;
-            }
-          }
-          .item_2 {
-            top: -53px;
-            left: -35px;
-            i {
-              background-position: -120px -110px;
-            }
-            &:hover i {
-              background-position: -120px 1px;
-            }
-          }
-          .item_3 {
-            top: -53px;
-            left: -20px;
-            i {
-              background-position: -240px -110px;
-            }
-            &:hover i {
-              background-position: -240px 1px;
-            }
-          }
-          .item_4 {
-            top: -53px;
-            left: 0px;
-            i {
-              background-position: -362px -110px;
-            }
-            &:hover i {
-              background-position: -362px 1px;
-            }
-          }
-          .item_5 {
-            top: -53px;
-            left: 10px;
-            i {
-              background-position: -484px -110px;
-            }
-            &:hover i {
-              background-position: -726px 1px;
-            }
-          }
-          .item_6 {
-            top: 25px;
-            left: -53px;
-            i {
-              background-position: -605px -110px;
-            }
-            &:hover i {
-              background-position: -484px 1px;
-            }
-          }
-          .item_7 {
-            top: 25px;
-            left: -35px;
-            i {
-              background-position: -726px -110px;
-            }
-            &:hover i {
-              background-position: -605px 1px;
-            }
-          }
-          .item_8 {
-            top: 25px;
-            left: -20px;
-            i {
-              background-position: -847px -110px;
-            }
-            &:hover i {
-              background-position: -847px 1px;
-            }
-          }
-          .item_9 {
-            top: 25px;
-            left: 0px;
-            i {
-              background-position: -968px -110px;
-            }
-            &:hover i {
-              background-position: -968px 1px;
-            }
-          }
-          .item_10 {
-            top: 25px;
-            left: 10px;
-            i {
-              background-position: -1089px -110px;
-            }
-            &:hover i {
-              background-position: -1089px 1px;
-            }
-          }
-        }
-      }
-      .btn {
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        margin-left: -180px;
-        a {
-          display: inline-block;
-          width: 128px;
-          height: 37px;
-          line-height: 37px;
-          text-align: center;
-          font-size: 16px;
-          color: #0080c4;
-          border: 1px solid #0080c4;
-          border-radius: 19px;
-          margin: 0 25px;
-          transition: 0.2s;
-          &:hover {
-            color: #fff;
-            background: #0080c4;
-          }
-        }
+     
+      img {
+        display: block;
+        margin: 0 auto 50px;
       }
     }
   }
