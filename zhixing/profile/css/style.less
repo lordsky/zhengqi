@@ -113,7 +113,19 @@
           padding: 50px;
           background: rgba(20, 121, 183, .6);
           transition: .3s;
+          h5 {
+            font-size: 16px;
+            color: #fff;
+          }
           p {
+            font-size: 15px;
+            line-height: 22px;
+            letter-spacing: 2px;
+            text-indent: 1em;
+            color: #fff;
+            overflow: auto;
+          }
+          /*  p {
             //width: 100%;
             position: absolute;
             top: 50%;
@@ -125,23 +137,32 @@
             letter-spacing: 2px;
             text-indent: 1em;
             color: #fff;
+          } */
+        }
+      }
+      &:nth-child(1) {
+        .text {
+          .hidden {
+            padding: 15% 25px 0;
+            p {
+              text-indent: 1em; //line-height: 30px;
+              margin-bottom: 20px;
+              line-height: 25px;
+            }
           }
         }
-        /* &:hover {
-          .hidden {
-            top: 0;
-          }
-        } */
       }
       &:nth-child(2) {
         .text {
           .hidden {
-            text-align: center;
-            padding: 40% 50px 0;
+            padding: 100px 50px;
+            h5 {
+              margin-top: 25px;
+              text-align: left;
+            }
             p {
+              text-align: left;
               text-indent: 0;
-              line-height: 120px;
-              font-size: 30px;
             }
           }
         }
