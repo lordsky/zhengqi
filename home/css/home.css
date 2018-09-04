@@ -172,7 +172,7 @@ body {
   position: absolute;
   height: 62.6%;
   top: 50%;
-  right: 50px;
+  right: 160px;
   transform: translateY(-50%);
   color: #fff;
 }
@@ -183,7 +183,7 @@ body {
   font-size: 25px;
 }
 .container .swiper_wrapper .swiper_slide.page_2 .page_map .city {
-  margin-top: 55px;
+  margin-top: 45px;
 }
 .container .swiper_wrapper .swiper_slide.page_2 .page_map .city h4 {
   font-size: 26px;
@@ -199,23 +199,24 @@ body {
   font-size: 21px;
   margin: 13px 20px 10px 0;
   text-align: center;
-  color: #FFF;
-  background: #0080c5;
+  color: #0080c5;
+  background: #FFF;
+  border-radius: 5px;
 }
 .container .swiper_wrapper .swiper_slide.page_2 .page_map .city a {
   display: inline-block;
-  width: 100px;
+  width: 142px;
   height: 36px;
   line-height: 36px;
   font-size: 15px;
-  color: #fff;
-  background: #0080c5c9;
+  color: #0080c5c9;
+  background: #fff;
   border-radius: 5px;
   text-align: center;
 }
 .container .swiper_wrapper .swiper_slide.page_2 .page_map .city a:hover {
-  color: #0080c5c9;
-  background: rgba(255, 255, 255, 0.788);
+  color: #fff;
+  background: #0080c5c9;
 }
 .container .swiper_wrapper .swiper_slide.page_2 .page_map .city .last {
   margin-left: 44px;
@@ -526,36 +527,36 @@ body {
   height: 35px;
 }
 .page_2 .point.beijing {
-  top: 410px;
-  left: 751px;
+  top: 290px;
+  left: 691px;
 }
 .page_2 .point.beijing .pin {
   animation-delay: 0s;
 }
 .page_2 .point.wuhan {
-  top: 600px;
-  left: 741px;
+  top: 421px;
+  left: 691px;
 }
 .page_2 .point.wuhan .pin {
   animation-delay: 2s;
 }
 .page_2 .point.shanghai {
-  top: 577px;
-  left: 858px;
+  top: 392px;
+  left: 815px;
 }
 .page_2 .point.shanghai .pin {
   animation-delay: 0.8s;
 }
 .page_2 .point.chengdu {
-  top: 601px;
-  left: 571px;
+  top: 430px;
+  left: 502px;
 }
 .page_2 .point.chengdu .pin {
   animation-delay: 1s;
 }
 .page_2 .point.xian {
-  top: 533px;
-  left: 646px;
+  top: 376px;
+  left: 587px;
 }
 .page_2 .point.xian .pin {
   animation-delay: 1.5s;
@@ -564,7 +565,7 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 50% 50% 50% 0;
-  background: red;
+  background: #fff;
   /*  position: absolute;
    left: 50%;
   top: 50%; */
@@ -581,7 +582,7 @@ body {
   width: 12px;
   height: 12px;
   margin: 7px 0 0 7px;
-  background: #2f2f2f;
+  background: #3cb5ff;
   position: absolute;
   border-radius: 50%;
 }
@@ -608,7 +609,7 @@ body {
   animation-iteration-count: infinite;
   opacity: 0;
   filter: alpha(opacity=0);
-  box-shadow: 0 0 1px 2px #89849b;
+  box-shadow: 0 0 1px 2px #FFF;
   animation-delay: 1.1s;
 }
 @keyframes pulsate {
@@ -658,24 +659,24 @@ body {
     height: 35px;
   }
   .container .swiper_wrapper .page_2 .point.beijing {
-    top: 400px;
-    left: 656px;
+    top: 293px;
+    left: 603px;
   }
   .container .swiper_wrapper .page_2 .point.wuhan {
-    top: 566px;
-    left: 651px;
+    top: 411px;
+    left: 604px;
   }
   .container .swiper_wrapper .page_2 .point.shanghai {
-    top: 546px;
-    left: 751px;
+    top: 388px;
+    left: 713px;
   }
   .container .swiper_wrapper .page_2 .point.chengdu {
-    top: 568px;
-    left: 503px;
+    top: 420px;
+    left: 439px;
   }
   .container .swiper_wrapper .page_2 .point.xian {
-    top: 504px;
-    left: 568px;
+    top: 371px;
+    left: 511px;
   }
   .container .swiper_wrapper .swiper_slide.page_2 .page_map .city_title h3 {
     font-size: 30px;
@@ -690,13 +691,13 @@ body {
     font-size: 23px;
   }
   .container .swiper_wrapper .swiper_slide.page_2 .page_map .city div p {
-    width: 100px;
+    width: 130px;
     height: 40px;
     line-height: 40px;
     font-size: 18px;
   }
   .container .swiper_wrapper .swiper_slide.page_2 .page_map .city a {
-    width: 107px;
+    width: 136px;
     height: 30px;
     line-height: 30px;
     font-size: 15px;
@@ -709,24 +710,24 @@ body {
     height: 35px;
   }
   .container .swiper_wrapper .page_2 .point.beijing {
-    top: 269px;
-    left: 536px;
+    top: 184px;
+    left: 490px;
   }
   .container .swiper_wrapper .page_2 .point.wuhan {
-    top: 406px;
-    left: 531px;
+    top: 276px;
+    left: 493px;
   }
   .container .swiper_wrapper .page_2 .point.shanghai {
-    top: 386px;
-    left: 611px;
+    top: 256px;
+    left: 582px;
   }
   .container .swiper_wrapper .page_2 .point.chengdu {
-    top: 408px;
-    left: 409px;
+    top: 283px;
+    left: 359px;
   }
   .container .swiper_wrapper .page_2 .point.xian {
-    top: 354px;
-    left: 463px;
+    top: 243px;
+    left: 417px;
   }
   .container .swiper_wrapper .swiper_slide.page_2 .page_map .city_title h3 {
     font-size: 25px;
@@ -747,7 +748,7 @@ body {
     font-size: 17px;
   }
   .container .swiper_wrapper .swiper_slide.page_2 .page_map .city a {
-    width: 107px;
+    width: 117px;
     height: 26px;
     line-height: 26px;
     font-size: 13px;

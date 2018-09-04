@@ -1,0 +1,209 @@
+.main {
+  width: 1200px;
+  margin: 0 auto;
+}
+.header {
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  background: #fff;
+  background: rgba(245, 246, 251, 0.75);
+  box-shadow: 0 2px 10px rgba(90, 90, 90, 0.6);
+}
+.header h1 {
+  float: left;
+  margin: 4px 0 0 0;
+}
+.header h1 a {
+  width: 173px;
+  height: 64px;
+  display: block;
+  background: url(../img/logo/logo_3.png) center no-repeat;
+  background-size: 100% 100%;
+}
+.header .nav_list {
+  position: relative;
+  float: left;
+  margin: 0 0 0 102px;
+}
+.header .nav_list .line {
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  margin: 10px 0 0 0;
+  background: #0080c5;
+}
+.header .nav_list li {
+  float: left;
+  height: 70px;
+  line-height: 70px;
+  padding: 0 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.header .nav_list li a {
+  font-size: 22px;
+  color: #424242;
+  display: block;
+  border-radius: 2px;
+  font-family: "microsoft yahei", arial, sans-serif;
+}
+.header .nav_list li a:hover {
+  color: #0080c5;
+}
+.header .nav_list li.send_resume {
+  padding-right: 0;
+}
+.header .nav_list li .r_link {
+  height: 0;
+  overflow: hidden;
+  background: #fff;
+  background: rgba(245, 246, 251, 0.75);
+  transition: 0.3s;
+}
+.header .nav_list li:hover .r_link {
+  height: 140px;
+}
+.banner {
+  width: 100%;
+}
+.banner img {
+  display: block;
+  width: 100%;
+}
+.container .title {
+  width: 100%;
+  padding: 70px 0;
+  box-sizing: border-box;
+}
+.container .title img {
+  display: block;
+  width: 803px;
+  margin: 0 auto;
+}
+.container ul li {
+  position: relative;
+  float: left;
+  width: 32%;
+}
+.container ul li:not(:nth-child(1)) {
+  margin-left: 2%;
+}
+.container ul li img {
+  display: block;
+}
+.container ul li .text {
+  position: absolute;
+  top: 71px;
+  left: 19px;
+  width: 334px;
+  height: 532px;
+  overflow: hidden;
+}
+.container ul li .text .hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 50px;
+  background: rgba(20, 121, 183, 0.6);
+  transition: 0.3s;
+  /*  p {
+            //width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 75%;
+            font-size: 15px;
+            line-height: 26px;
+            letter-spacing: 2px;
+            text-indent: 1em;
+            color: #fff;
+          } */
+}
+.container ul li .text .hidden h5 {
+  font-size: 16px;
+  color: #fff;
+}
+.container ul li .text .hidden p {
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 2px;
+  text-indent: 1em;
+  color: #fff;
+  overflow: auto;
+}
+.container ul li:nth-child(1) .text .hidden {
+  padding: 15% 25px 0;
+}
+.container ul li:nth-child(1) .text .hidden p {
+  text-indent: 1em;
+  margin-bottom: 20px;
+  line-height: 25px;
+}
+.container ul li:nth-child(2) .text .hidden {
+  padding: 100px 50px;
+}
+.container ul li:nth-child(2) .text .hidden h5 {
+  margin-top: 25px;
+  text-align: left;
+}
+.container ul li:nth-child(2) .text .hidden p {
+  text-align: left;
+  text-indent: 0;
+}
+.vision img {
+  display: block;
+  margin: 50px auto;
+}
+.you img {
+  display: block;
+  margin: 50px auto 0;
+}
+.you img:nth-child(2) {
+  width: 100%;
+}
+.history {
+  width: 100%;
+  height: 750px;
+}
+.history img {
+  display: block;
+  margin: 50px auto;
+}
+.history .dev {
+  text-align: center;
+  color: #595757;
+}
+.history .dev h3 {
+  font-weight: normal;
+  margin-top: 45px;
+  font-size: 40px;
+}
+.history .dev p {
+  line-height: 50px;
+  font-size: 20px;
+}
+.copy_right {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background: #088ed5;
+  text-align: center;
+}
+.copy_right p {
+  color: #FFF;
+  font-size: 18px;
+  font-weight: 100;
+}
+.copy_right p i {
+  display: inline-block;
+  vertical-align: top;
+  width: 32px;
+  height: 41px;
+  margin-right: 10px;
+  background: url(../img/copy_icon.png) no-repeat;
+}
